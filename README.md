@@ -18,6 +18,12 @@ On the Raspberry Pi:
 View on Windows:
 ncat.exe -l -p 5001 | mplayer.exe -fps 31 -cache 512 -
 
+OR
+
+
+
+
+
 ## Stream as a HTTP server ##
 
 On the Raspberry Pi:
@@ -25,3 +31,26 @@ On the Raspberry Pi:
 
 View with VLC:
 vlc http://raspberrypi.lan:8089/
+
+# Stream as tcp server #
+On the Raspberry Pi using netcat:
+./telepi - | netcat -lkv4 8080
+
+# On VLC #
+
+tcp/h264://ip:port
+
+# Example: #
+File -> Open Network:  tcp/h264://192.168.0.1:8080
+
+
+## Compile: ##
+
+You will need to compile the ilclient library first.
+
+cd /opt/vc/src/hello_pi/libs/ilclient
+make
+
+Go in the telepi folder and run
+make
+
